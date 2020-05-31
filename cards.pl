@@ -29,7 +29,7 @@ createRow(Songs, X, [NewSong | RestOfRow], Remaining) :-
     once(createRow(NewSongs, R, RestOfRow, Remaining)).
 
 /* createCard(Songs, X, Y, Card)
-    Card is a result of populating a single Card with songs, in multiple rows and columns as given by the X and Y coordinates.
+    Card is a result of populating a single Card with songs, in multiple rows and columns as given by the X and Y coordinates
 */
 
 createCard(_, _, 0, []).
