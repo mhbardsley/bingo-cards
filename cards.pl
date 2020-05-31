@@ -83,4 +83,4 @@ generateCards :-
     atom_number(Z, C),
     createCards(List, C, A, B).
 
-:- generateCards.
+:- generateCards, halt.

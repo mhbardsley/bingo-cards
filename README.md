@@ -13,7 +13,6 @@
         - line separated list of bingo items (songs/numbers/countries, etc)
 - Running the program
     - Once you have SWI-Prolog installed and as a `$PATH` environment variable, and input parameters as desired:
-    - Navigate to this directory
-    - Run `swipl`
-    - Type `[cards].`
+    - Navigate to this directory (via command prompt/bash)
+    - Run `swipl cards.pl`
     - Cards will then appear in the output folder
