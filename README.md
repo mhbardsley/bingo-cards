@@ -12,7 +12,7 @@
     - songs.txt
         - line separated song list
 - Running the program
-    - Once you have SWI-Prolog installed, and input parameters as desired:
+    - Once you have SWI-Prolog installed and as a `$PATH` environment variable, and input parameters as desired:
     - Navigate to this directory
     - Run `swipl`
     - Type `[cards].`
