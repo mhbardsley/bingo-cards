@@ -70,7 +70,7 @@ getSongs(Stream, [X | List]) :-
 */
 
 generateCards :-
-    open('input/songs.txt', read, Stream1),
+    open('input/list.txt', read, Stream1),
     getSongs(Stream1, List),
     close(Stream1),
     open('input/config.txt', read, Stream2),

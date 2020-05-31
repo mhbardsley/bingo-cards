@@ -9,8 +9,8 @@
         - no of columns
         - no of rows
         - no of cards
-    - songs.txt
-        - line separated song list
+    - list.txt
+        - line separated list of bingo items (songs/numbers/countries, etc)
 - Running the program
     - Once you have SWI-Prolog installed and as a `$PATH` environment variable, and input parameters as desired:
     - Navigate to this directory
