@@ -6,8 +6,8 @@
 ## HOW TO RUN
 - Input parameters as given in input folder (currently just has dummy data)
     - config.txt
-        - no of rows
         - no of columns
+        - no of rows
         - no of cards
     - songs.txt
         - line separated song list
