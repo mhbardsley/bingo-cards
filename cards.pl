@@ -6,14 +6,14 @@
     Applies the rowToList functor to each list in Lists, to a list in Rows
 */
 
-rowsToLists(Rows, Lists):-
+rowsToLists(Rows, Lists) :-
     maplist(rowToList, Rows, Lists).
 
 /* rowToList(Row, List)
     Defines a row functor on the List type
 */
 
-rowToList(Row, List):-
+rowToList(Row, List) :-
     Row =.. [row | List].
 
 /* createRow(Songs, X, Row, RemainingSongs)
