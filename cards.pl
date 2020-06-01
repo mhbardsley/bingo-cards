@@ -23,6 +23,7 @@ rowToList(Row, List) :-
 createRow(Songs, 0, [], Songs).
 
 createRow(Songs, X, [NewSong | RestOfRow], Remaining) :-
+    X > 0,
     random_member(NewSong, Songs),
     delete(Songs, NewSong, NewSongs),
     R is X-1,
@@ -34,6 +35,7 @@ createRow(Songs, X, [NewSong | RestOfRow], Remaining) :-
 
 createCard(_, _, 0, []).
 createCard(Songs, X, Y, [NewRow | OtherRows]) :-
+    Y > 0,
     createRow(Songs, X, NewRow, Remaining),
     Q is Y-1,
     once(createCard(Remaining, X, Q, OtherRows)).
@@ -44,6 +46,7 @@ createCard(Songs, X, Y, [NewRow | OtherRows]) :-
 
 createCards(_, 0, _, _).
 createCards(Songs, N, X, Y) :-
+    N > 0,
     createCard(Songs, X, Y, NewCard),
     atom_string(N, Ext),
     string_concat('output/card', Ext, Temp),
