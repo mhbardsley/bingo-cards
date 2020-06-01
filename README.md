@@ -8,9 +8,10 @@
     - config.txt
         - no of columns
         - no of rows
-        - no of cards
     - list.txt
         - line separated list of bingo items (songs/numbers/countries, etc)
+    - people.txt
+        - line separated list of people (and some extras at the bottom to represent spare cards)
 - Running the program
     - Once you have SWI-Prolog installed and as a `$PATH` environment variable, and input parameters as desired:
     - If you are a Windows user, just double-click the file `run.bat`

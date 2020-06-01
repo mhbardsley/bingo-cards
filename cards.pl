@@ -44,29 +44,26 @@ createCard(Songs, X, Y, [NewRow | OtherRows]) :-
     Creates N cards, with X columns and Y rows.
 */
 
-createCards(_, 0, _, _).
-createCards(Songs, N, X, Y) :-
-    N > 0,
+createCards(_, [], _, _).
+createCards(Songs, [Person | OtherPeople], X, Y) :-
     createCard(Songs, X, Y, NewCard),
-    atom_string(N, Ext),
-    string_concat('output/card', Ext, Temp),
+    string_concat('output/card', Person, Temp),
     string_concat(Temp, '.csv', Result),
     rowsToLists(Rows, NewCard),
     csv_write_file(Result, Rows),
-    L is N-1,
-    once(createCards(Songs, L, X, Y)).
+    once(createCards(Songs, OtherPeople, X, Y)).
 
-/* getSongs(Stream, List)
+/* getListFromStream(Stream, List)
     Takes an input Stream, and converts each line to a new list item
 */
 
-getSongs(Stream, []) :-
+getListFromStream(Stream, []) :-
     at_end_of_stream(Stream).
 
-getSongs(Stream, [X | List]) :-
+getListFromStream(Stream, [X | List]) :-
     \+ at_end_of_stream(Stream),
     read_line_to_string(Stream, X),
-    once(getSongs(Stream, List)).
+    once(getListFromStream(Stream, List)).
 
 /* generateCards
     Runs the main program, by taking each input stream, unifying with given variables, then running the generation algorithm
@@ -74,16 +71,17 @@ getSongs(Stream, [X | List]) :-
 
 generateCards :-
     open('input/list.txt', read, Stream1),
-    getSongs(Stream1, List),
+    getListFromStream(Stream1, List),
     close(Stream1),
-    open('input/config.txt', read, Stream2),
-    read_line_to_string(Stream2, X),
-    read_line_to_string(Stream2, Y),
-    read_line_to_string(Stream2, Z),
+    open('input/people.txt', read, Stream2),
+    getListFromStream(Stream2, People),
     close(Stream2),
+    open('input/config.txt', read, Stream3),
+    read_line_to_string(Stream3, X),
+    read_line_to_string(Stream3, Y),
+    close(Stream3),
     atom_number(X, A),
     atom_number(Y, B),
-    atom_number(Z, C),
-    createCards(List, C, A, B).
+    createCards(List, People, A, B).
 
 :- generateCards, halt.
